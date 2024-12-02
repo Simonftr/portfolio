@@ -51,12 +51,11 @@ a{
 
 
 #background {
-    background: linear-gradient(circle at center,rgb(121, 121, 121),rgb(255, 255, 255));
+    background: radial-gradient(circle at center,rgb(200, 0, 255,0.25),rgb(25, 25, 25));
     z-index: -1;
     position: fixed;
     width: 100%;
     height: 100%;
-    animation: gradient 5s ease infinite;
 }
 
 #home{
