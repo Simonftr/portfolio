@@ -1,65 +1,36 @@
-/* let body = document.querySelector("body")
-body.addEventListener("mousemove", event => {
-    body.style.background = "radial-gradient(circle at "+event.pageX+"px "+event.pageY+"px,#1E1523,#18111B";
-}
-) */
-/*
-let cursor = document.querySelector("#cursor")
-document.addEventListener("mousemove", event => {
-    cursor.style.top = event.clientY+"px";
-    cursor.style.left = event.clientX+"px";
-}
-)
 
-let homeButton = document.querySelector("#homeButton").addEventListener("click", event => {
-    window.location.href = 'index.html'; 
+class Projet {
+    static allProjets=[]
+    constructor(titre, description){
+        this.titre = titre
+        this.description = description
 
-})
+        Projet.allProjets.push(this)
+    }
 
-
-
-const projetsBox = document.querySelector("#projetsBox")
-
-projet1 = {
-    'titre': "projet1",
-    'description': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue."
-}
-projet2 = {
-    'titre': "projet2",
-    'description': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue."
-}
-projet3 = {
-    'titre': "projet3",
-    'description': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue."
-}
-projet4 = {
-    'titre': "projet4",
-    'description': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue."
-}
-projet5 = {
-    'titre': "projet5",
-    'description': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue."
+    static getAllProjets() {
+        return Projet.allProjets
+    }
 }
 
+const ugur = new Projet('UGUR','UGUR is a video game made with Unity for a university project. We were a group of 4 students to make it.')
+const lettricide = new Projet('Lettricide','dzq')
+const botanic = new Projet('Botanic','dzq')
 
-projets = []
-projets.push(projet1)
-projets.push(projet2)
-projets.push(projet3)
-projets.push(projet4)
-projets.push(projet5)
 
-projets.forEach(projet => {
-    let projetDiv = document.createElement("li")
-    let photo = document.createElement("img")
-    let detailsDiv = document.createElement("div")
-    projetDiv.classList.add("projet")
-    detailsDiv.classList.add("detailsProjet")
-    projetDiv.innerHTML = projet["titre"]
-    projetsBox.appendChild(projetDiv)
-    projetDiv.appendChild(photo)
-    projetDiv.appendChild(detailsDiv)
-}); */
+
+const workList = document.querySelector("#workList")
+Projet.getAllProjets().forEach(projet => {
+    let oneWork = document.createElement("div")
+    let h3 = document.createElement("h3")
+    let p = document.createElement("p")
+    oneWork.classList.add("oneWork")
+    h3.innerHTML = projet.titre
+    p.innerHTML = projet.description
+    workList.appendChild(oneWork)
+    oneWork.appendChild(h3)
+    oneWork.appendChild(p)
+}); 
 
 
 

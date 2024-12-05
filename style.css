@@ -1,16 +1,15 @@
 @font-face {
     font-family: 'SFPro';
-    src: url('assets/fonts/SFProText-Regular.woff') format('woff'),
-        url('assets/fonts/SFProText-Regular.woff2') format('woff2');
+    src: url('./assets/fonts/SF-Pro-Text-Regular.otf') ;
     font-style: normal;
 }
 @font-face {
     font-family: 'SFPro';
-    src: url('assets/fonts/SFProText-Bold.woff') format('woff'),
-            url('assets/fonts/SFProText-Bold.woff2') format('woff2');
-    font-weight: bold;
+    src: url('./assets/fonts/SF-Pro-Text-Bold.otf') ;
     font-style: normal;
+    font-weight: bold;
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -33,6 +32,10 @@ body {
 #content {
     width: 100%;
 }
+#content h2 {
+    font-size: 2rem;
+    padding: .75em 0;
+}
 #page {
     width: 66%;
     margin: 0 auto;
@@ -45,32 +48,62 @@ nav {
 }
 #navbar {
     display: flex;
+    z-index: 100;
     width: 400px;
     position: fixed;
-    top: 10px;
+    top: 3vh;
     justify-content:space-around;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(105deg, rgba(154, 92, 208, 0.1),rgba(208, 96, 92, 0.1),rgba(146, 208, 92, 0.1),rgba(92, 204, 208, 0.1));
     border-radius:.625em ;
     padding: .625em;
-    backdrop-filter: blur(15px);
-    outline: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 5px #ffffff;
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) brightness(200%) ;
+    box-shadow: 0 0 5px rgba(154, 92, 208, 0.1),
+                0 0 25px rgba(208, 96, 92, 0.1),
+                0 0 50px rgba(146, 208, 92, 0.1),
+                0 0 200px rgba(92, 204, 208, 0.1);
 }
 
 #navbar a{
     padding: .5em;
+    position: relative;
     border-radius: .625em;
-    z-index: 1;
     color: white;
     text-decoration: none;
     transition: .25s;
 
 }
-#navbar a:hover{
-    background-color:  rgba(255, 255, 255, 0.25);
+
+
+#navbar a::after{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: white;
+    bottom: 0;
+    left: 50%;
+    transition: .25s;
 
 }
+#navbar a:nth-child(1)::after{
+    background-color: #9a5cd0;
+}
+#navbar a:nth-child(2)::after{
+    background-color: #d0605c;
+}
+#navbar a:nth-child(3)::after{
+    background-color: #92d05c;
+}
+#navbar a:nth-child(4)::after{
+    background-color: #5cccd0;
+}
+#navbar a:hover::after{
+    width: 100%;
+    left: 0;
+}
+
 #navbar a:nth-child(1):hover{
     color: #9a5cd0;
 }
@@ -85,6 +118,7 @@ nav {
 }
 
 
+
 #home{
     display: flex;
     flex-direction: column;
@@ -93,16 +127,15 @@ nav {
     width: 100%;
 }
 
-#home h1{
+#home h3{
     font-size: 1.5rem;
     width: fit-content;
     background: linear-gradient(105deg,#9A5CD0,#d05c75);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
 }
-#home h2{
+#home h1{
     font-size: 5rem;
-    font-weight: bold;
     line-height: 1;
     width: fit-content;
     background: linear-gradient(105deg,#9A5CD0,#d05c75);
@@ -121,7 +154,7 @@ nav {
 }
 .socialMedia{
     color: #9A5CD0;
-    border: solid 3px #9A5CD0;
+    border: solid 2px #9A5CD0;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -145,7 +178,7 @@ nav {
     font-size: 0.9rem;
     flex-direction: row;
     align-items: center;
-    border: solid 3px #9A5CD0;
+    border: solid 2px #9A5CD0;
     padding: .625em;
     width: fit-content;
     border-radius: .625em;
@@ -183,22 +216,26 @@ nav {
     width: 50%;
 }
 #aboutText h2 {
+    color: #9a5cd0;
     width: fit-content;
-    font-size: 2rem;
     position: relative;
 }
-#aboutText h2::after {
-    position: absolute;
-    content: "";
-    width: 500px;
-    top: 50%;
-    left: 105%;
-    height: 2px;
-    background-color: white;
-}
+
 #aboutText p {
-    font: 1rem;
+    font-size: 1.5rem;
+    position: relative;
 }
+
+#aboutText p::after {
+    position: absolute;
+    background: linear-gradient(90deg,#9A5CD0,#d05c75);
+    content: "";
+    width: 100%;
+    bottom: -1.5em;
+    left: 0;
+    height: 2px;
+}
+
 #about #photo {
     width: 33%;
     position: relative;
@@ -220,12 +257,18 @@ nav {
 }
 
 
+
+
+#skills{
+    scroll-margin-top: 25vh;
+}
 #skills h2{
     text-align: center;
+    color: #d0605c;
 }
 
 #skills ul {
-    margin:  10% 0 ;
+    padding:  10% 0 ;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -233,40 +276,115 @@ nav {
     row-gap: 1em;
 }
 #skills ul li {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     list-style: none;
     color: #ECD9FA;
     width: 33%;
     text-align: center;
+    position: relative;
+}
+#skills ul li::after{
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 3px;
+    border-radius: 50px;
+    background-color: #664282;
 }
 
 #skills ul li svg{
-    height: 1em;
+    height: 1.5em;
     vertical-align: middle;
 }
 
+
+#work {
+    scroll-margin-top: 25vh;
+
+}
+#work h2{
+    color: #92d05c;
+}
 
 #workList{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    row-gap: 25px;
     justify-content: space-evenly;
 }
-
 .oneWork {
     width: 25%;
-    height: fit-content;
-    background-color: #48295C;
+    background-color: #3C2E69;
     border-radius: 10px;
     padding: 2em;
-    box-shadow: 0 0 5px #48295C,
-                0 0 25px #48295C;;
+    box-shadow: 0 0 5px #3C2E69,
+                0 0 50px #3C2E69;
+    transition: .33s;
 
 }
 .oneWork:hover {
-    box-shadow: 0 0 5px #48295C,
-                0 0 25px #48295C,
-                0 0 50px #48295C,
-                0 0 200px #48295C;
     transform: translateY(-10px);
+}
+.oneWork h3 {
+    font-size: 1.5rem;
+    padding: .75em 0 ;
+
+}
+.oneWork p {
+    color: #ECD9FA;
+
+}
+
+#contact {
+    scroll-margin-top: 25vh;
+    height: 90vh;
+
+
+}
+
+#contact a {
+    text-decoration: none;
+    display: flex;
+    font-size: 0.9rem;
+    flex-direction: row;
+    align-items: center;
+    border: solid 2px #9A5CD0;
+    padding: .625em;
+    width: fit-content;
+    border-radius: .625em;
+    transition: .33s;
+    color: white;
+    background-color: #9A5CD0;
+    box-shadow: 0 0 5px #9A5CD0,
+                0 0 25px #9A5CD0;
+    
+                
+}
+#contact h2 {
+    color: #5cccd0;
+}
+#contact a:hover {
+    color: #9A5CD0;
+    box-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    
+}
+#contact a span {
+    margin-left: 1em;
+}
+#contact a svg{
+    width: 32px;
+    height: 32px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    color: #D19DFF;
+    padding: 2em;
 }
