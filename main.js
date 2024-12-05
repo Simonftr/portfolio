@@ -1,15 +1,15 @@
-let background = document.querySelector("#background")
-document.addEventListener("mousemove", event => {
-    background.style.background = "radial-gradient(circle at "+event.clientX+"px "+event.clientY+"px,rgb(200, 0, 255,0.25),rgb(25, 25, 25)";
+/* let body = document.querySelector("body")
+body.addEventListener("mousemove", event => {
+    body.style.background = "radial-gradient(circle at "+event.pageX+"px "+event.pageY+"px,#1E1523,#18111B";
 }
-)
-/* 
+) */
+/*
 let cursor = document.querySelector("#cursor")
 document.addEventListener("mousemove", event => {
     cursor.style.top = event.clientY+"px";
     cursor.style.left = event.clientX+"px";
 }
-) */
+)
 
 let homeButton = document.querySelector("#homeButton").addEventListener("click", event => {
     window.location.href = 'index.html'; 
@@ -59,7 +59,7 @@ projets.forEach(projet => {
     projetsBox.appendChild(projetDiv)
     projetDiv.appendChild(photo)
     projetDiv.appendChild(detailsDiv)
-});
+}); */
 
 
 
