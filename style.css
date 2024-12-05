@@ -1,7 +1,17 @@
 @font-face {
-    font-family: 'nexa';
-    src: url('assets/fonts/Nexa-Heavy.ttf');
-  }
+    font-family: 'SFPro';
+    src: url('assets/fonts/SFProText-Regular.woff') format('woff'),
+        url('assets/fonts/SFProText-Regular.woff2') format('woff2');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SFPro';
+    src: url('assets/fonts/SFProText-Bold.woff') format('woff'),
+            url('assets/fonts/SFProText-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -15,7 +25,7 @@ html {
 body {
     background-color: #18111B;
     color: white;
-    font-family: 'nexa';
+    font-family: 'SFPro';
 }
 
 
@@ -40,23 +50,26 @@ nav {
     top: 10px;
     justify-content:space-around;
     flex-direction: row;
-    background-color: rgba(30, 21, 35, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius:.625em ;
     padding: .625em;
     backdrop-filter: blur(15px);
     outline: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 5px #9A5CD0;
+    box-shadow: 0 0 5px #ffffff;
 }
 
 #navbar a{
+    padding: .5em;
+    border-radius: .625em;
     z-index: 1;
     color: white;
     text-decoration: none;
+    transition: .25s;
+
 }
 #navbar a:hover{
-    z-index: 1;
-    color: white;
-    text-decoration: none;
+    background-color:  rgba(255, 255, 255, 0.25);
+
 }
 #navbar a:nth-child(1):hover{
     color: #9a5cd0;
@@ -89,6 +102,7 @@ nav {
 }
 #home h2{
     font-size: 5rem;
+    font-weight: bold;
     line-height: 1;
     width: fit-content;
     background: linear-gradient(105deg,#9A5CD0,#d05c75);
@@ -160,32 +174,99 @@ nav {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items:center;
 }
 #aboutText{
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 50%;
 }
 #aboutText h2 {
+    width: fit-content;
     font-size: 2rem;
+    position: relative;
+}
+#aboutText h2::after {
+    position: absolute;
+    content: "";
+    width: 500px;
+    top: 50%;
+    left: 105%;
+    height: 2px;
+    background-color: white;
 }
 #aboutText p {
     font: 1rem;
-    
 }
 #about #photo {
-    height: 50vh;
-    width: 50vh;
+    width: 33%;
+    position: relative;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .5s;
+    background: linear-gradient(105deg,#d05c75,#9A5CD0);
 }
+
 #photo img {
     height: 100%;
     width: 100%;
+    padding: 100%  ;
     object-fit: cover;
-    mix-blend-mode:lighten;
+}
+
+
+#skills h2{
+    text-align: center;
+}
+
+#skills ul {
+    margin:  10% 0 ;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 1em;
+}
+#skills ul li {
+    font-size: 1.2rem;
+    list-style: none;
+    color: #ECD9FA;
+    width: 33%;
+    text-align: center;
+}
+
+#skills ul li svg{
+    height: 1em;
+    vertical-align: middle;
+}
+
+
+#workList{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.oneWork {
+    width: 25%;
+    height: fit-content;
+    background-color: #48295C;
+    border-radius: 10px;
+    padding: 2em;
+    box-shadow: 0 0 5px #48295C,
+                0 0 25px #48295C;;
+
+}
+.oneWork:hover {
+    box-shadow: 0 0 5px #48295C,
+                0 0 25px #48295C,
+                0 0 50px #48295C,
+                0 0 200px #48295C;
+    transform: translateY(-10px);
 }
