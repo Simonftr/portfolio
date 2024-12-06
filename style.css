@@ -21,6 +21,20 @@ html {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 10px;  /* Largeur de la barre de défilement */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #54346B;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;  /* Couleur du fond de la barre de défilement */
+  }
+
+
 body {
     background-color: #18111B;
     color: white;
@@ -334,7 +348,7 @@ nav {
     width: 100%;
     flex-wrap: wrap;
     gap: 25px;
-    justify-content: space-evenly;
+    justify-content:center;
     align-items: stretch;
 }
 .oneWork {
@@ -468,7 +482,7 @@ footer {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    opacity: 1%;
+    opacity: 2%;
 }
 #bestiol{
     height: 0;
