@@ -13,12 +13,12 @@
 
 html {
     scroll-behavior: smooth;
-    box-sizing: border-box;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -27,8 +27,13 @@ body {
     font-family: 'SFPro';
 }
 
+a {
+    text-decoration: none;
+}
 
-
+p {
+    color: #ECD9FA;
+}
 #content {
     width: 100%;
 }
@@ -54,23 +59,23 @@ nav {
     top: 3vh;
     justify-content:space-around;
     flex-direction: row;
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: rgba(255, 255, 255, 0.035);
     border-radius:.625em ;
     padding: .625em;
-    outline: 1px solid rgba(255, 255, 255, 0.1);
+    outline: 1px solid #FFFFFF2C;
+    transition: .1s;
     backdrop-filter: blur(10px) ;
     box-shadow: 0 0 5px rgba(128, 128, 128, 0.1),
                 0 0 25px rgba(128, 128, 128, 0.1),
-                0 0 50px rgba(128, 128, 128, 0.1),
-                0 0 150px rgba(128, 128, 128, 0.1);
+                0 0 50px rgba(128, 128, 128, 0.1);
 }
+
 
 #navbar a{
     padding: .5em;
     position: relative;
     border-radius: .625em;
     color: white;
-    text-decoration: none;
     transition: .25s;
 
 }
@@ -147,7 +152,7 @@ nav {
     -webkit-text-fill-color: transparent; 
 }
 #home h1{
-    font-size: 5rem;
+    font-size: 6rem;
     line-height: 1;
     width: fit-content;
     background: linear-gradient(105deg,#9A5CD0,#d05c75);
@@ -155,26 +160,31 @@ nav {
     -webkit-text-fill-color: transparent;    
 }
 #home p{
-    font-size: 3rem;  
+    font-size: 3rem;
+    margin-bottom: 1em;  
 }
 #social {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin: 1em 0;
     gap: 1em;
+    height: 3em;
 }
 .socialMedia{
     color: #9A5CD0;
     border: solid 2px #9A5CD0;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: .625em;
+    width: max-content;
+    height: 100%;
     box-shadow: none;
     background: transparent;
     cursor: pointer;
     transition: .33s;
+}
+.socialMedia svg{
+    height: 100%;
+    width: auto;
+    padding: 25%;
 }
 
 .socialMedia:hover{
@@ -191,8 +201,9 @@ nav {
     flex-direction: row;
     align-items: center;
     border: solid 2px #9A5CD0;
-    padding: .625em;
+    padding: 0 .625em ;
     width: fit-content;
+    height: 100%;
     border-radius: .625em;
     transition: .33s;
     color: white;
@@ -209,10 +220,7 @@ nav {
     cursor: pointer;
     
 }
-#cvlink svg{
-    width: 16px;
-    height: 16px;
-}
+
 
 #about {
     height: 100vh;
@@ -253,19 +261,17 @@ nav {
     position: relative;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    overflow: hidden;
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
-    transition: .5s;
     background: linear-gradient(105deg,#d05c75,#9A5CD0);
 }
 
 #photo img {
     height: 100%;
     width: 100%;
-    padding: 100%  ;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -327,55 +333,80 @@ nav {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    row-gap: 25px;
+    gap: 25px;
     justify-content: space-evenly;
+    align-items: stretch;
 }
 .oneWork {
-    text-decoration: none;
     position: relative;
     color: inherit  ;
+    height: fit-content;
     width: 25%;
-    background-color: #3C2E69;
+    background: radial-gradient(circle at center, #FFFFFF09,#00000000);
     border-radius: 10px;
     padding: 2em;
-    box-shadow: 0 0 5px #3C2E69,
-                0 0 50px #3C2E69;
+    backdrop-filter: blur(10px) ;
+    outline: 1px solid #FFFFFF2C;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.1);
     transition: .33s;
 
 }
 .oneWork:hover {
     transform: translateY(-10px);
     cursor: pointer;
+    
 }
 .oneWork h3 {
     font-size: 1.5rem;
     padding: .75em 0 ;
 
 }
-.oneWork p {
-    color: #ECD9FA;
 
-}
 
-.oneWork div {
+.oneWork .external {
     text-align: end;
     height: 48px;
     right: 10px;
     top: 10px;
     position: absolute;
 }
-.oneWork div svg{
-    height: 100%;
+.oneWork .external svg{
+    height: 50%;
     width: auto;
+    transition: .33s;
 }
+.dateProjet{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #FFFFFFAF;
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+
+.oneWork:hover .external svg{
+    color: #8E4EC6;
+}
+
+.technosList{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+.technosList div::before{
+    content: "▶ ";
+    color: #8E4EC6;
+}
+
+
 
 #contact {
     scroll-margin-top: 25vh;
-    height: 75vh;
+    height: 50vh;
 }
 
-#contact a {
-    text-decoration: none;
+#contact #mail{
     display: flex;
     font-size: 0.9rem;
     flex-direction: row;
@@ -398,11 +429,13 @@ nav {
 }
 #contact > div {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    row-gap: 3em;
     align-items: center;
     flex-direction: column;
+    height: 100%;
 }
-#contact a:hover {
+#contact #mail:hover {
     color: #9A5CD0;
     box-shadow: none;
     background: transparent;
@@ -425,7 +458,7 @@ footer {
 }
 
 
-#test1{
+#bestiolConteneur{
     position: fixed;
     display: flex;
     top: 0;
@@ -437,12 +470,13 @@ footer {
     align-items: center;
     opacity: 1%;
 }
-#test2{
-    height: 50%;
-    width: 50%;
+#bestiol{
+    height: 0;
+    width: 0;
     border-radius: 0 0 0 0;
-    background-color: white;
+    background-color: #ECD9FA;
     transition: 5s;
-    box-shadow: 0 0 50px 100px white;
+    box-shadow: 0 0 50px 100px #ECD9FA;
 
 }
+
