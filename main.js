@@ -1,3 +1,9 @@
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+});
+
 
 class Projet {
     static allProjets=[]
@@ -101,5 +107,7 @@ setInterval(_ => {
 
 document.querySelectorAll(".oneWork").forEach(work => work.addEventListener("mousemove", e => {
     const rect = work.getBoundingClientRect();
-    work.style.background = "radial-gradient(circle at "+(e.clientX-rect.left)+"px "+(e.clientY-rect.top)+"px, #FFFFFF09,#00000000)"
+    work.style.background = "radial-gradient(circle at "+(e.clientX-rect.left)+"px "+(e.clientY-rect.top)+"px, rgba(255, 255, 255, 0.075),#00000000)"
 }))
+
+
