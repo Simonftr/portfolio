@@ -522,12 +522,20 @@ footer {
 }
 @media (max-width: 768px)
 {
+    #page {
+        width: 75%;
+        margin: 0 auto;
+    }
     #content h2 {
         font-size: 1.25rem;
     }
     #navbar {
         font-size: 0.75rem;
         width: fit-content;
+    }
+    #navbar a{
+        padding-left: 1.5em;
+        padding-right: 1.5em;
     }
     .oneWork {
         width: 100%;
